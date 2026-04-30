@@ -1,7 +1,22 @@
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+
+@Entity('todos')
 export class Todo {
-  id!:number;
+  @PrimaryGeneratedColumn()
+  id!: number;
+
+  @Column()
   userId!: number;
+
+  @Column()
   title!: string;
+
+  @Column({ default: false })
   completed!: boolean;
-  createdAt!: number;
+
+  @CreateDateColumn()
+  createdAt!: Date;
+
+  @UpdateDateColumn()
+  updatedAt!: Date;
 }
